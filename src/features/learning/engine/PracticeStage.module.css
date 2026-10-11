@@ -1,0 +1,44 @@
+.stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  user-select: none;
+}
+
+.missing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+  color: var(--didim-muted);
+  font-size: var(--didim-font-body);
+  text-align: center;
+}
+
+/* 실제 앱이 아니라는 작은 표시 */
+.badge {
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  z-index: 40;
+  transform: translateX(-50%);
+  padding: 1px 8px;
+  border-radius: 8px;
+  background: rgba(22, 29, 36, 0.55);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}

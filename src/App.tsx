@@ -24,6 +24,7 @@ import arrowRight from './assets/arrow-right.svg'
 import voicePlay from './assets/voice-play.svg'
 import voiceSpectrum from './assets/voice-spectrum.svg'
 import guardianAvatar from './assets/guardian-avatar.png'
+import { KakaoLearn } from './KakaoLearn'
 import {
   Button,
   Choice,
@@ -58,6 +59,7 @@ type Screen =
   | 'setupActivities'
   | 'setupTimes'
   | 'main'
+  | 'kakaoLearn'
   | 'settings'
 
 type Profile = {
@@ -103,6 +105,25 @@ function formatDate(date: Date) {
 function honorific(name: string) {
   const n = name.trim() || '주하'
   return n.endsWith('님') ? n : `${n}님`
+}
+
+function walkSteps(dayOffset: number) {
+  if (dayOffset < 0) return 3240
+  if (dayOffset === 0) return 1180
+  return 0
+}
+
+function pointsForDay(dayOffset: number, photoTaken: boolean, voiceSent: boolean) {
+  const steps = walkSteps(dayOffset)
+  const items: { label: string; amount: number }[] = []
+  if (steps >= 3000) items.push({ label: '하루 3,000보 달성', amount: 30 })
+  if (steps >= 5000) items.push({ label: '하루 5,000보 달성', amount: 20 })
+  if (steps >= 7000) items.push({ label: '하루 7,000보 달성', amount: 20 })
+  if (steps >= 10000) items.push({ label: '하루 10,000보 달성', amount: 50 })
+  if (dayOffset < 0 || (dayOffset === 0 && photoTaken)) items.push({ label: '사진 미션 완료', amount: 50 })
+  if (dayOffset < 0 || (dayOffset === 0 && voiceSent)) items.push({ label: '음성 기록 미션 완료', amount: 50 })
+  if (dayOffset <= 0) items.push({ label: '학습 미션 완료', amount: 50 })
+  return { items, total: items.reduce((sum, item) => sum + item.amount, 0) }
 }
 
 function App() {
@@ -570,6 +591,16 @@ function App() {
         </Button>
       </div>
     )
+  } else if (screen === 'kakaoLearn') {
+    body = (
+      <div className="screen kakao-learn">
+        <KakaoLearn
+          onExit={() => {
+            setScreen('main')
+          }}
+        />
+      </div>
+    )
   } else if (screen === 'settings') {
     body = (
       <div className="screen">
@@ -619,6 +650,7 @@ function App() {
     const showPhoto = isPast || photoTaken
     const showVoice = isPast || voiceSent
     const showReply = isPast || (photoTaken && voiceSent)
+    const dayPoints = pointsForDay(dayOffset, photoTaken, voiceSent)
     body = (
       <>
         <div className="tab-body">
@@ -655,7 +687,7 @@ function App() {
                   metaDone
                   name="카카오톡 배우기"
                   chevron
-                  onClick={() => setTab('learn')}
+                  onClick={() => go('kakaoLearn')}
                 />
                 <div className="stone-item current">
                   <div className="stone-top">
@@ -675,8 +707,24 @@ function App() {
                     </button>
                   </div>
                 </div>
-                <StoneRow pebble={pebbleGray1} icon={iconCamera} meta="활동 · 15:00 예정" name="꽃 사진 찍기" />
-                <StoneRow pebble={pebbleGray2} icon={iconHeart} meta="활동 · 20:00 예정" name="안부 인사 보내기" />
+                <StoneRow
+                  pebble={photoTaken ? pebbleGreen1 : pebbleGray1}
+                  icon={iconCamera}
+                  meta={photoTaken ? '활동 · 13:34 완료' : '활동 · 15:00 예정'}
+                  metaDone={photoTaken}
+                  name="꽃 사진 찍기"
+                  chevron
+                  onClick={() => setTab('activity')}
+                />
+                <StoneRow
+                  pebble={voiceSent ? pebbleGreen2 : pebbleGray2}
+                  icon={iconHeart}
+                  meta={voiceSent ? '활동 · 14:27 완료' : '활동 · 20:00 예정'}
+                  metaDone={voiceSent}
+                  name="음성 메시지 보내기"
+                  chevron
+                  onClick={() => setTab('activity')}
+                />
                 <StoneRow pebble={pebbleGray3b} icon={iconMoon} meta="22:30 예정" name="취침하기" />
               </div>
             </>
@@ -697,6 +745,7 @@ function App() {
                   metaDone
                   name="카카오톡 배우기"
                   chevron
+                  onClick={() => go('kakaoLearn')}
                 />
               </div>
               <div className="section-head">
@@ -713,7 +762,11 @@ function App() {
                     key={item.label}
                     type="button"
                     className="learn-card"
-                    onClick={() => setToast(`${item.label} 학습을 준비 중이에요.`)}
+                    onClick={() =>
+                      item.label === '카카오톡'
+                        ? go('kakaoLearn')
+                        : setToast(`${item.label} 학습을 준비 중이에요.`)
+                    }
                   >
                     <img className={item.cls} src={item.src} alt="" />
                     {item.label}
@@ -834,6 +887,23 @@ function App() {
                 <h2>내 포인트 기록</h2>
               </div>
               <DateNav label={dayLabel} tag={tag} onPrev={() => setDayOffset((n) => n - 1)} onNext={() => setDayOffset((n) => n + 1)} />
+              <div className="points-day">
+                <p className="points-earned">
+                  이날 얻은 포인트 <strong>{dayPoints.total.toLocaleString('ko-KR')} P</strong>
+                </p>
+                {dayPoints.items.length === 0 ? (
+                  <p className="points-empty">아직 얻은 포인트가 없어요.</p>
+                ) : (
+                  <ul className="points-log">
+                    {dayPoints.items.map((item) => (
+                      <li key={item.label} className="points-log-row">
+                        <span>{item.label}</span>
+                        <span className="amt">+{item.amount} P</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             </>
           )}
         </div>

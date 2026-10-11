@@ -1,0 +1,77 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--didim-tap-min);
+  padding: 10px 20px;
+  border: 1.5px solid transparent;
+  border-radius: var(--didim-radius);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.25;
+  cursor: pointer;
+  transition:
+    transform 0.1s ease,
+    filter 0.15s ease;
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.button:hover:not(:disabled) {
+  filter: brightness(0.97);
+}
+
+.block {
+  display: flex;
+  width: 100%;
+}
+
+.primary {
+  background: var(--didim-primary);
+  color: #fff;
+}
+
+.primary:hover:not(:disabled) {
+  filter: brightness(1.12);
+}
+
+.soft {
+  border-color: var(--didim-primary-line);
+  background: var(--didim-primary-soft);
+  color: var(--didim-primary);
+}
+
+.outline {
+  border-color: var(--didim-primary);
+  background: var(--didim-surface);
+  color: var(--didim-text);
+}
+
+.back {
+  border-color: var(--didim-accent);
+  background: var(--didim-accent-soft);
+  color: var(--didim-accent);
+}
+
+.neutral {
+  border-color: var(--didim-neutral-line);
+  background: var(--didim-neutral);
+  color: var(--didim-text);
+}
+
+.danger {
+  background: var(--didim-accent);
+  color: #fff;
+}
+
+.icon {
+  display: inline-flex;
+}

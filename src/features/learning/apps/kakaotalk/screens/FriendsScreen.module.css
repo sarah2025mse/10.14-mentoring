@@ -1,0 +1,97 @@
+.me {
+  flex: 1;
+  justify-content: flex-start;
+  gap: 10px;
+  min-width: 0;
+}
+
+.myName {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.updated {
+  display: flex;
+  gap: 4px;
+  padding: 4px 10px 12px;
+  overflow: hidden;
+}
+
+.updatedItem {
+  flex: none;
+  flex-direction: column;
+  gap: 6px;
+  width: 74px;
+}
+
+.updatedName {
+  max-width: 100%;
+  overflow: hidden;
+  color: #333;
+  font-size: 13px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.section {
+  margin: 0;
+  padding: 12px 18px 6px;
+  border-top: 1px solid var(--kk-line);
+  color: var(--kk-sub);
+  font-size: 13px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 60px;
+  padding: 0 18px;
+}
+
+.name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 16px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.giftBtn {
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 16px;
+  font-size: 13px;
+}
+
+.cake {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 38%;
+  background: #fde8ee;
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  color: var(--kk-sub);
+  font-size: 14px;
+}
+
+.status {
+  flex: none;
+  max-width: 40%;
+  padding: 4px 10px;
+  overflow: hidden;
+  border: 1px solid #e6e6e6;
+  border-radius: 14px;
+  color: #666;
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

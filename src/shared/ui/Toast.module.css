@@ -1,0 +1,50 @@
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1.5px solid var(--didim-line);
+  border-radius: var(--didim-radius);
+  background: var(--didim-surface);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  animation: slide-in 0.25s ease-out;
+}
+
+.icon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.text {
+  flex: 1;
+  align-self: center;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.info .icon {
+  background: var(--didim-info-soft);
+  color: var(--didim-info);
+}
+
+.success .icon {
+  background: var(--didim-primary-soft);
+  color: var(--didim-primary);
+}
+
+.warning .icon {
+  background: var(--didim-warning-soft);
+  color: var(--didim-warning);
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}

@@ -1,0 +1,19 @@
+.art {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.title {
+  display: block;
+  color: var(--didim-primary);
+  font-size: var(--didim-font-hero);
+  text-align: center;
+}
+
+.message {
+  display: block;
+  font-size: var(--didim-font-body);
+  font-weight: 700;
+  text-align: center;
+}

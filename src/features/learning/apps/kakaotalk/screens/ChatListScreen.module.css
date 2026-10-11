@@ -1,0 +1,58 @@
+.room {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  height: 76px;
+  padding: 0 18px;
+}
+
+.texts {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.nameLine {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.name {
+  overflow: hidden;
+  font-size: 17px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.members {
+  color: var(--kk-sub);
+  font-size: 16px;
+}
+
+.preview {
+  overflow: hidden;
+  color: #777;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.meta {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  align-self: flex-start;
+  padding-top: 15px;
+}
+
+.time {
+  color: var(--kk-sub);
+  font-size: 12px;
+}

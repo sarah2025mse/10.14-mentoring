@@ -1,0 +1,41 @@
+/*
+ * 디딤 디자인 토큰 ('앱 이미지/DIDIM' 시안 기준).
+ * 디딤 화면에서는 색과 크기를 이 변수로만 쓴다. 연습 앱(카카오톡 등) 화면 안에는 쓰지 않는다.
+ */
+:root {
+  /* 기본 4색 */
+  --didim-primary: #156051;
+  --didim-bg: #f4f4f0;
+  --didim-text: #161d24;
+  --didim-accent: #d24f20;
+
+  /* 기본 색에서 나온 색 */
+  --didim-primary-dark: #0e4a3e;
+  --didim-primary-soft: #e3eee9;
+  --didim-primary-line: #b7d1c6;
+  --didim-accent-soft: #fbe6de;
+  --didim-surface: #ffffff;
+  --didim-text-sub: #4a5560;
+  --didim-muted: #8a9096;
+  --didim-line: #d6d7d1;
+  --didim-neutral: #e9eae6;
+  --didim-neutral-line: #c9cbc5;
+  --didim-settings: #6e7b76;
+  --didim-info: #3d6fd8;
+  --didim-info-soft: #e3eafb;
+  --didim-warning: #c98a00;
+  --didim-warning-soft: #fdf1d6;
+
+  --didim-font: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+    'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  --didim-font-small: 17px;
+  --didim-font-body: 20px;
+  --didim-font-title: 24px;
+  --didim-font-hero: 28px;
+
+  --didim-gutter: 24px; /* 화면 옆 여백 */
+  --didim-radius: 14px; /* 버튼, 카드 */
+  --didim-radius-large: 20px; /* 팝업 */
+  --didim-tap-min: 60px; /* 큰 버튼 높이 */
+  --didim-action-size: 44px; /* 이전, 도움말 네모 버튼 */
+}

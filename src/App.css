@@ -525,6 +525,25 @@
   align-items: flex-start;
 }
 
+.screen.kakao-learn {
+  padding: 0;
+  overflow: hidden;
+}
+
+.kakao-learn-root {
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.kakao-learn-root > * {
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+}
+
 .tab-body {
   flex: 1;
   min-height: 0;
@@ -779,6 +798,66 @@
   font-weight: 800;
   color: var(--green-primary);
   margin-top: 4px;
+}
+
+.points-day {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.points-earned {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.points-earned strong {
+  color: var(--green-primary);
+}
+
+.points-empty {
+  margin: 0;
+  padding: 20px 16px;
+  border-radius: 16px;
+  background: var(--bg-secondary);
+  color: var(--grey-2);
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.points-log {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  border: 1px solid var(--grey-4);
+  border-radius: 16px;
+  background: var(--bg-secondary);
+}
+
+.points-log-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--grey-4);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.points-log-row:last-child {
+  border-bottom: none;
+}
+
+.points-log-row .amt {
+  flex: none;
+  color: var(--green-primary);
+  font-weight: 800;
+  white-space: nowrap;
 }
 
 .steps-card {

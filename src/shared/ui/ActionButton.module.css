@@ -1,0 +1,53 @@
+.action {
+  display: inline-flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  min-width: var(--didim-action-size);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--didim-action-size);
+  height: var(--didim-action-size);
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  transition: transform 0.1s ease;
+}
+
+.action:active .box {
+  transform: scale(0.94);
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.prev .box {
+  border-color: var(--didim-accent);
+  background: var(--didim-accent-soft);
+  color: var(--didim-accent);
+}
+
+.prev .label {
+  color: var(--didim-accent);
+}
+
+.help .box {
+  background: var(--didim-accent);
+  color: #fff;
+}
+
+.help .label {
+  color: var(--didim-accent);
+}

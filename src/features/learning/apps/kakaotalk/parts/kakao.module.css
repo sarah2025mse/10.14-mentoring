@@ -1,0 +1,115 @@
+/* 연습용 카카오톡 화면 공통 스타일. 디딤 색상이 아니라 실제 카카오톡과 비슷한 색을 쓴다. */
+
+.root {
+  --kk-text: #191919;
+  --kk-sub: #858585;
+  --kk-line: #f0f0f0;
+  --kk-chip: #f1f1f1;
+  --kk-yellow: #fee500;
+  --kk-badge: #fa5a3c;
+  --kk-chat-bg: #abc1d1;
+  --kk-tab-off: #bdbdbd;
+
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #fff;
+  color: var(--kk-text);
+  font-family: var(--didim-font);
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+/* 버튼 모양을 지운 기본 버튼. 클릭 처리는 엔진이 한다. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+/* 친구, 채팅 탭 위쪽 머리줄 */
+.topBar {
+  display: flex;
+  flex: none;
+  align-items: center;
+  height: 58px;
+  padding: 6px 12px 0 18px;
+}
+
+.topTitle {
+  flex: 1;
+  margin: 0;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.topIcons {
+  display: flex;
+  gap: 2px;
+}
+
+.iconBtn {
+  composes: btn;
+  width: 42px;
+  height: 42px;
+}
+
+/* 위쪽 동그란 고르기 버튼 (친구/소식, 전체/안읽음 ...) */
+.chips {
+  display: flex;
+  flex: none;
+  gap: 8px;
+  padding: 6px 18px 12px;
+  overflow: hidden;
+}
+
+.chip {
+  composes: btn;
+  flex: none;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 19px;
+  background: var(--kk-chip);
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.chipOn {
+  composes: chip;
+  background: #191919;
+  color: #fff;
+}
+
+/* 머리줄과 하단 탭 사이. 넘치면 아래쪽이 잘린다 (스크롤 없음) */
+.body {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background: var(--kk-badge);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+}

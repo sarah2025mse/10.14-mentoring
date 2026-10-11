@@ -1,0 +1,47 @@
+.header {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 16px 10px;
+  border-bottom: 1.5px solid var(--didim-line);
+  background: var(--didim-bg);
+  box-shadow: 0 3px 10px rgba(22, 29, 36, 0.12);
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.title {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: var(--didim-action-size);
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* 지금 할 일: 연한 초록 카드. 두 줄 높이를 늘 확보해서 단계가 바뀔 때 아래 화면이 흔들리지 않게 한다 */
+.instruction {
+  display: flex;
+  align-items: center;
+  min-height: calc(2 * 1.3em + 16px);
+  margin: 2px 0 0;
+  padding: 8px 14px;
+  border: 1.5px solid var(--didim-primary-line);
+  border-radius: var(--didim-radius);
+  background: var(--didim-primary-soft);
+  color: var(--didim-primary-dark);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+}

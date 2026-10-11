@@ -1,3 +1,5 @@
+@import './shared/theme/tokens.css';
+
 :root {
   --text-primary: #161d24;
   --text-inverted: #ffffff;

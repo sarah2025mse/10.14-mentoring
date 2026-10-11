@@ -1,0 +1,21 @@
+.stone {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+}
+
+.icon {
+  display: flex;
+  margin-top: -6%;
+}
+
+.green .icon {
+  color: #fff;
+}
+
+.gray .icon {
+  color: #3a3f44;
+}

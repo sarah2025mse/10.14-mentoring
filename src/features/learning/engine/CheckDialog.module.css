@@ -1,0 +1,14 @@
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feedback {
+  margin-top: 16px;
+}
+
+.praise {
+  color: var(--didim-primary);
+  font-size: 20px;
+}
